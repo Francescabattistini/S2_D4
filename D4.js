@@ -64,15 +64,15 @@ console.log(boundary(400));
 console.log("esercizio 5");
 
 function epify(stringa) {
-  if (stringa.indexOf("EPICODE")) {
-    return stringa;
+  if (stringa.startsWith("EPICODE")) {
+    return stringa; // Se la stringa inizia già con "EPICODE", ritorna la stringa originale
   } else {
-    return stringa;
+    return "EPICODE " + stringa; //  aggiunge "EPICODE" all'inizio della stringa fornita
   }
 }
-console.log(epify("Epicode ama tanto i gatti"));
-console.log(epify(" e io amiamo tanto i gatti"));
-
+console.log(epify("amo i gatti"));
+console.log(epify("EPICODE tutte cose"));
+console.log(epify("ipa"));
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
  di 3 o di 7. (Suggerimento: usa l'operatore modulo)
@@ -80,18 +80,50 @@ console.log(epify(" e io amiamo tanto i gatti"));
 
 console.log("esercizio 6");
 
+function check3and7(numero) {
+  if (numero < 0) {
+    return false;
+  }
+  if (numero % 3 === 0 || numero % 7 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(check3and7(3));
+console.log(check3and7(21));
+console.log(check3and7(10));
+console.log(check3and7(-1));
+
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
 */
-
-/* SCRIVI QUI LA TUA RISPOSTA */
-
+console.log("esercizio 7");
+function reverseString(stringa) {
+  let stringaInvertita = ""; // stringa vuota per contenere la nuova stringa
+  for (let i = stringa.length - 1; i >= 0; i--) {
+    stringaInvertita = stringaInvertita + stringa[i];
+  }
+  return stringaInvertita;
+}
+console.log(reverseString("EPICODE"));
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
+console.log("esercizio 8");
+function upperFirst(str) {
+  let parole = str.split(" ");
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+  for (let i = 0; i < parole.length; i++) {
+    parole[i] =
+      parole[i].charAt(0).toUpperCase() + parole[i].slice(1).toLowerCase(); // parola corrente prende la prima lettera della parola  e la rendi maiuscola poi aggiungi il resto delle lettere partendo dall'indice 1 (quindi salta la prima lettera ) ma in minuscolo
+  }
+
+  return parole.join(" ");
+}
+console.log(upperFirst("ciao amici"));
+console.log(upperFirst("voglio un gelato"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
