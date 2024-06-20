@@ -64,9 +64,12 @@ console.log(boundary(400));
 console.log("esercizio 5");
 
 function epify(stringa) {
+  // creo la stringa
   if (stringa.startsWith("EPICODE")) {
+    //controllare se la stringa contiene Epicode
     return stringa; // Se la stringa inizia già con "EPICODE", ritorna la stringa originale
   } else {
+    //se no esequire sotto
     return "EPICODE " + stringa; //  aggiunge "EPICODE" all'inizio della stringa fornita
   }
 }
@@ -99,6 +102,7 @@ console.log(check3and7(-1));
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
 */
 console.log("esercizio 7");
+
 function reverseString(stringa) {
   let stringaInvertita = ""; // stringa vuota per contenere la nuova stringa
   for (let i = stringa.length - 1; i >= 0; i--) {
@@ -113,7 +117,7 @@ console.log(reverseString("EPICODE"));
 */
 console.log("esercizio 8");
 function upperFirst(str) {
-  let parole = str.split(" ");
+  let parole = str.split(" "); // splittare la stringa agli spazi
 
   for (let i = 0; i < parole.length; i++) {
     parole[i] =
@@ -121,7 +125,7 @@ function upperFirst(str) {
     // la rendi maiuscola poi aggiungi il resto delle lettere partendo dall'indice 1 (quindi salta la prima lettera ) ma in minuscolo
   }
 
-  return parole.join(" ");
+  return parole.join(" "); // riunisci la stringa mettendo uno spazio tra un elemento e un altro
 }
 console.log(upperFirst("ciao amici"));
 console.log(upperFirst("voglio un gelato"));
